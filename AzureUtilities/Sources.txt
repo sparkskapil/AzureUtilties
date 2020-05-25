@@ -1,0 +1,8 @@
+﻿
+https://stackoverflow.com/questions/20356033/in-tfs-api-how-do-i-get-the-full-class-name-for-a-given-test
+
+http://geekswithblogs.net/TarunArora/archive/2012/05/16/get-detailed-build-test-results-using-the-tfs-api.aspx
+
+https://www.automatetheplanet.com/connect-to-tfs-team-project-csharp-code/
+
+https://stackoverflow.com/questions/3413527/how-to-connect-with-tfs-and-get-list-of-projects-for-a-specific-user
