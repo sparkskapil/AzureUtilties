@@ -157,7 +157,7 @@ namespace AzureUtilities
         public List<BuildInfo> GetAllBuilds(string TeamProjectName, List<int> BuildPipelineIds = null)
         {
             var client = m_collection.GetClient<BuildHttpClient>();
-            var builds = client.GetBuildsAsync(TeamProjectName).GetAwaiter().GetResult();
+            var builds = client.GetBuildsAsync(TeamProjectName, BuildPipelineIds).GetAwaiter().GetResult();
             var buildInfos = new List<BuildInfo>();
 
             foreach (var build in builds)
