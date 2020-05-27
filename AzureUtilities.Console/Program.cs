@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace AzureUtilities
@@ -14,7 +11,6 @@ namespace AzureUtilities
         static TeamProject SelectedProject;
         static BuildPipeline SelectedPipeline;
         static BuildInfo SelectedBuild;
-        static TestRun SelectedTestRun;
 
 
         static void CreatePlaylist(string PathToFile, List<Test> Tests, bool IncludePassed = false)
@@ -26,10 +22,12 @@ namespace AzureUtilities
             writer.WriteStartElement("Playlist");
             writer.WriteAttributeString("Version", "1.0");
 
+            int count = 0;
             foreach(var test in Tests)
             {
                 if(IncludePassed || test.Result == "Failed")
                 {
+                    count++;
                     writer.WriteStartElement("Add");
                     writer.WriteAttributeString("Test", test.FullyQualifiedName);
                     writer.WriteEndElement();
@@ -41,6 +39,12 @@ namespace AzureUtilities
 
             writer.WriteEndDocument();
             writer.Close();
+
+            //If TestCount written to Playlist is Zero, we do not want the playlist
+            if(count == 0 && File.Exists(PathToFile))
+            {
+                File.Delete(PathToFile);
+            }
         }
 
         static void ExportAllTestRunsInSelectedBuild(bool IncludePassed = false)
@@ -78,7 +82,7 @@ namespace AzureUtilities
         static void ShowPipelineSelectionMenu()
         {
             Console.Clear();
-            Console.WriteLine("CONNECTED({0}) > PROJECT({1}) |)", 
+            Console.WriteLine("CONNECTED({0}) > PROJECT({1}) > PIPELINES |)", 
                 Azure.Collection, SelectedProject.TeamProjectName);
 
             var Pipelines = Azure.Builds.GetBuildPipelines(SelectedProject);
@@ -100,7 +104,7 @@ namespace AzureUtilities
         static void ShowBuildSelectionMenu()
         {
             Console.Clear();
-            Console.WriteLine("CONNECTED({0}) > PROJECT({1}) > PIPELINE({2}) |)", 
+            Console.WriteLine("CONNECTED({0}) > PROJECT({1}) > PIPELINE({2}) > BUILDS |)", 
                 Azure.Collection, SelectedProject.TeamProjectName, SelectedPipeline.Name );
 
             var Builds = Azure.Builds.GetAllBuilds(SelectedPipeline);
