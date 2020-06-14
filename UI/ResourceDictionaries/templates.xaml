@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:UI.ResourceDictionaries" 
+                    xmlns:views="clr-namespace:UI.Views">
+    
+    <DataTemplate x:Key="ConnectContentView">
+        <views:ConnectContentView/>
+    </DataTemplate>
+    <DataTemplate x:Key="ProjectContentView">
+        <views:ProjectContentView/>
+    </DataTemplate>
+    
+
+</ResourceDictionary>

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{7984
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureUtilities.Console", "AzureUtilities.Console\AzureUtilities.Console.csproj", "{21D85FFD-371A-4A76-BB7B-21B2FA59F27D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{FE3CC56E-3117-4439-820C-3A1F79A5A877}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{21D85FFD-371A-4A76-BB7B-21B2FA59F27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21D85FFD-371A-4A76-BB7B-21B2FA59F27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21D85FFD-371A-4A76-BB7B-21B2FA59F27D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE3CC56E-3117-4439-820C-3A1F79A5A877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE3CC56E-3117-4439-820C-3A1F79A5A877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE3CC56E-3117-4439-820C-3A1F79A5A877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE3CC56E-3117-4439-820C-3A1F79A5A877}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
