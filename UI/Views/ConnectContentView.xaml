@@ -19,9 +19,21 @@
                  Margin="20 25" 
                  TextAlignment="Center" 
                  Padding="10" 
-                 FontSize="40"/>
+                 FontSize="40">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="50"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
         <!--Connect Button-->
         <!--List of old connections-->
-        <Button Height="100" Width="200" Content="Connect" Command="{Binding ConnectCommand}"/>        
+        <Button Height="100" Width="200" Content="Connect" Command="{Binding ConnectCommand}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </UserControl>
