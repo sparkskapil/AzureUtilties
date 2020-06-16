@@ -13,7 +13,7 @@ namespace AzureUtilities
         static BuildInfo SelectedBuild;
 
 
-        static void CreatePlaylist(string PathToFile, List<Test> Tests, bool IncludePassed = false)
+        static void CreatePlaylist(string PathToFile, List<Test> Tests, bool IncludePassed)
         {
             XmlWriter writer = XmlWriter.Create(PathToFile);
             writer.WriteStartDocument();
@@ -54,7 +54,7 @@ namespace AzureUtilities
             {
                 var tests = Azure.Tests.GetAllTests(run);
                 string path = String.Format("{0}.playlist", run.Title);
-                CreatePlaylist(path, tests);
+                CreatePlaylist(path, tests, IncludePassed);
                 Console.WriteLine("Exported Playlist {0}", Path.GetFullPath(path));
             }
         }
@@ -96,7 +96,7 @@ namespace AzureUtilities
                 var Pipeline = Pipelines[i];
                 Console.WriteLine("{0}. {1}", i + 1, Pipeline.Name);
             }
-            Console.Write("Select Project: ");
+            Console.Write("Select Pipeline: ");
             int choice = Convert.ToInt32(Console.ReadLine());
             SelectedPipeline = Pipelines[choice - 1];
         }
@@ -118,7 +118,7 @@ namespace AzureUtilities
                 var Build = Builds[i];
                 Console.WriteLine("{0}. {1}", i + 1, Build.BuildNumber);
             }
-            Console.Write("Select Project: ");
+            Console.Write("Select Build: ");
             int choice = Convert.ToInt32(Console.ReadLine());
             SelectedBuild = Builds[choice - 1];
         }
