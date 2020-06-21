@@ -7,13 +7,27 @@ using System.Threading.Tasks;
 
 namespace ViewModels
 {
-    class SessionManager
+    public delegate void StageSwitchHandler(int index);
+
+    public enum NavigationStage
+    {
+        Connect,
+        Projects,
+        Pipelines,
+        TestRuns
+    };
+    public class SessionManager
     {
         AzureAdapter m_adapter;
         public TeamProject? SelectedProject { get; private set; }
         public BuildPipeline? SelectedPipeline { get; private set; }
         public BuildInfo? SelectedBuild { get; private set; }
         public TestRun? SelectedTestRun { get; private set; }
+
+        public event StageSwitchHandler StageSwitchEvent;
+
+        public NavigationStage SelectedStage { get; private set; }
+
         protected SessionManager()
         {
             m_adapter = null;
@@ -36,6 +50,11 @@ namespace ViewModels
             }
         }
 
+        internal void StageSwitch(int index)
+        {
+            StageSwitchEvent(index);
+        }
+
         private void ResetSelectables()
         {
 
@@ -43,6 +62,7 @@ namespace ViewModels
             SelectedPipeline = null;
             SelectedBuild = null;
             SelectedTestRun = null;
+            SelectedStage = NavigationStage.Connect;
         }
 
         public void Reset(string url)

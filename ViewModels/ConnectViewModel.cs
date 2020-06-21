@@ -11,7 +11,7 @@ namespace ViewModels
     public class ConnectViewModel : ViewModelBase
     {
         private string m_connectionUrl;
-
+       
         public string ConnectionUrl
         {
             get { return m_connectionUrl; }
@@ -33,7 +33,6 @@ namespace ViewModels
             }
         }
 
-
         private bool CanConnect(object arg)
         {
             return Uri.IsWellFormedUriString(ConnectionUrl, UriKind.RelativeOrAbsolute);
@@ -42,6 +41,7 @@ namespace ViewModels
         public void Connect(object arg)
         {
             SessionManager.Instance.Reset(ConnectionUrl);
+            SessionManager.Instance.StageSwitch(1);
         }
         public ConnectViewModel()
         {

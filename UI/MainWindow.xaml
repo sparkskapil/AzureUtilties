@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         xmlns:views="clr-namespace:UI.Views"
+        xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="800" 
@@ -15,7 +16,7 @@
         Background="Transparent">
 
     <Window.Resources>
-        
+        <vm:MainViewModel x:Key="MainVM"/>
         <Style TargetType="ContentControl" x:Key="MainViewContainerStyle" >
             <Style.Triggers>
 
@@ -31,7 +32,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid DataContext="{StaticResource MainVM}">
 
         <!--create a new grid-->
         <Grid Margin="40,0,0,40" Background="#1C2F3E">
@@ -94,10 +95,10 @@
                      Background="#14212B"
                      Grid.Row="1" Grid.Column="0"
                      BorderBrush="Transparent"
-                     ItemContainerStyle="{StaticResource NavListBoxItemStyle}">
+                     ItemContainerStyle="{StaticResource NavListBoxItemStyle}"
+                     SelectedIndex="{Binding SelectedNavItemIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
                 <ListBoxItem x:Name="Connect"
-                             IsSelected="True"
                              Height="100"
                              Background="Transparent" 
                              BorderBrush="Transparent">

@@ -45,6 +45,7 @@
     <Compile Include="ConnectViewModel.cs" />
     <Compile Include="Helper\Command.cs" />
     <Compile Include="Helper\ViewModelBase.cs" />
+    <Compile Include="MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionManager.cs" />
   </ItemGroup>
