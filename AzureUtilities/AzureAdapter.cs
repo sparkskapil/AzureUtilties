@@ -14,16 +14,16 @@ namespace AzureUtilities
 {
     public struct TeamProject
     {
-        public string TeamProjectName;
-        public string Url;
+        public string TeamProjectName { get; set; }
+        public string Url { get; set; }
     }
     public struct BuildPipeline
     {
-        public string Name;
-        public string Path;
-        public string Url;
-        public int Id;
-        public TeamProject Project;
+        public string Name { get; set; }
+        public string Path { get; set; }
+        public string Url { get; set; }
+        public int Id { get; set; }
+        public TeamProject Project { get; set; }
 
         public BuildPipeline(DefinitionReference definitionRef)
         {
@@ -50,41 +50,41 @@ namespace AzureUtilities
     }
     public struct BuildInfo
     {
-        public string BuildNumber;
-        public string Url;
-        public Uri Uri;
-        public BuildPipeline Pipeline;
-        public DateTime? StarTime;
-        public DateTime? FinishTime;
-        public DateTime? QueueTime;
-        public bool Success;
-        public BuildStatus Status;
+        public string BuildNumber { get; set; }
+        public string Url { get; set; }
+        public Uri Uri { get; set; }
+        public BuildPipeline Pipeline { get; set; }
+        public DateTime? StarTime { get; set; }
+        public DateTime? FinishTime { get; set; }
+        public DateTime? QueueTime { get; set; }
+        public bool Success { get; set; }
+        public BuildStatus Status { get; set; }
     }
     public struct TestRun
     {
-        public string Title;
-        public string BuildUrl;
-        public int Id;
-        public string ProjectName;
-        public int TotalTests;
-        public int PassedTests;
-        public int SkippedTests;
-        public int FailedTests;
-        public int IncompleteTests;
-        public bool IsAutomated;
+        public string Title { get; set; }
+        public string BuildUrl { get; set; }
+        public int Id { get; set; }
+        public string ProjectName { get; set; }
+        public int TotalTests { get; set; }
+        public int PassedTests { get; set; }
+        public int SkippedTests { get; set; }
+        public int FailedTests { get; set; }
+        public int IncompleteTests { get; set; }
+        public bool IsAutomated { get; set; }
     }
     public struct Test
     {
-        public string Title;
-        public int TestRunId;
-        public string BuildNumber;
-        public int PipelineId;
-        public DateTime Start;
-        public DateTime Finish;
-        public string FullyQualifiedName;
-        public string Result;
-        public string Error;
-        public string StackTrace;
+        public string Title { get; set; }
+        public int TestRunId { get; set; }
+        public string BuildNumber { get; set; }
+        public int PipelineId { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime Finish { get; set; }
+        public string FullyQualifiedName { get; set; }
+        public string Result { get; set; }
+        public string Error { get; set; }
+        public string StackTrace { get; set; }
     }
 
     public class Projects
