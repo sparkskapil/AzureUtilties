@@ -2,13 +2,31 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:UI.ResourceDictionaries" 
                     xmlns:views="clr-namespace:UI.Views">
-    
+
     <DataTemplate x:Key="ConnectContentView">
         <views:ConnectContentView/>
     </DataTemplate>
+    
+    
     <DataTemplate x:Key="ProjectContentView">
         <views:ProjectContentView/>
     </DataTemplate>
+    
+    <!--DataTemplate for Project List Item in Projects Content View-->
+    <DataTemplate x:Key="ProjectCompactView">
+        <StackPanel Margin="10">
+
+            <Image Width="128" Height="128" 
+                   Source="../assets/icons/projectItem.png"/>
+
+            <TextBlock HorizontalAlignment="Center" 
+                       FontSize="24" 
+                       FontWeight="DemiBold" 
+                       Foreground="#f2f2f2"
+                       Text="{Binding TeamProjectName}" />
+        </StackPanel>
+    </DataTemplate>
+    
     
 
 </ResourceDictionary>
