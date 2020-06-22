@@ -26,6 +26,18 @@ namespace ViewModels
             }
         }
 
+        private int m_selectedProjectIndex;
+        public int SelectedProjectIndex
+        {
+            get { return m_selectedProjectIndex; }
+            set
+            {
+                m_selectedProjectIndex = value;
+                RaiseEvent();
+                SelectedProjectChanged();
+            }
+        }
+
         public ObservableCollection<TeamProject> Projects
         {
             get { return m_projects; }
@@ -37,11 +49,14 @@ namespace ViewModels
             IsBusy = false;
             Projects = new ObservableCollection<TeamProject>();
             PopulateProjects();
-            SessionManager.Instance.StageSwitchEvent += new StageSwitchHandler(StageSwitched);
+            m_selectedProjectIndex = -1;
         }
 
         private void PopulateProjects()
         {
+            if (SessionManager.Adapter == null)
+                return;
+
             var uiContext = SynchronizationContext.Current;
             IsBusy = true;
             BackgroundWorker worker = new BackgroundWorker();
@@ -57,13 +72,10 @@ namespace ViewModels
 
             worker.RunWorkerAsync();
         }
-
-        protected void StageSwitched(int index)
+        private void SelectedProjectChanged()
         {
-            if (index == 1)
-            {
-                PopulateProjects();
-            }
+            SessionManager.Instance.SelectedProject = m_projects[SelectedProjectIndex];
+            SessionManager.Instance.StageSwitch(2);
         }
     }
 }

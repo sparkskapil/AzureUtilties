@@ -28,7 +28,8 @@
             Background="Transparent"
             BorderBrush="Transparent"
             ItemsSource="{Binding Projects, UpdateSourceTrigger=PropertyChanged,  Mode=TwoWay}" 
-            ItemTemplate="{StaticResource ProjectCompactView}">
+            ItemTemplate="{StaticResource ProjectCompactView}"
+            SelectedIndex="{Binding SelectedProjectIndex, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />

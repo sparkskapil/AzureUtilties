@@ -19,10 +19,10 @@ namespace ViewModels
     public class SessionManager
     {
         AzureAdapter m_adapter;
-        public TeamProject? SelectedProject { get; private set; }
-        public BuildPipeline? SelectedPipeline { get; private set; }
-        public BuildInfo? SelectedBuild { get; private set; }
-        public TestRun? SelectedTestRun { get; private set; }
+        public TeamProject? SelectedProject { get; set; }
+        public BuildPipeline? SelectedPipeline { get; set; }
+        public BuildInfo? SelectedBuild { get; set; }
+        public TestRun? SelectedTestRun { get; set; }
 
         public event StageSwitchHandler StageSwitchEvent;
 

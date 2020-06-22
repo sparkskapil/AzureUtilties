@@ -45,7 +45,7 @@ namespace ViewModels
         }
         public ConnectViewModel()
         {
-            ConnectionUrl = "https://";
+            ConnectionUrl = "https://dev.azure.com/HyperCubeTech";
         }
     }
 }
