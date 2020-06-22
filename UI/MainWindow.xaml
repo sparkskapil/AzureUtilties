@@ -103,16 +103,25 @@
                              Background="Transparent" 
                              BorderBrush="Transparent">
                     <Image Source="assets/icons/connect.png"
-                           Height="32" Width="32">
+                           Height="50" Width="50">
                     </Image>
                 </ListBoxItem>
-                
+
                 <ListBoxItem x:Name="Project"
                         Height="100"
                         Background="Transparent"
                         BorderBrush="Transparent">
                     <Image Source="assets/icons/project.png"
-                           Height="32" Width="32">
+                           Height="50" Width="50">
+                    </Image>
+                </ListBoxItem>
+
+                <ListBoxItem x:Name="Pipelines"
+                        Height="100"
+                        Background="Transparent"
+                        BorderBrush="Transparent">
+                    <Image Source="assets/icons/pipelines.png"
+                           Height="50" Width="50">
                     </Image>
                 </ListBoxItem>
             </ListBox>
