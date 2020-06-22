@@ -149,6 +149,10 @@
   <ItemGroup>
     <Resource Include="assets\icons\projectItem.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\pipelineItem.png" />
+    <Resource Include="assets\icons\pipelines.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>if not exist mkdir $(TargetDir)assets
